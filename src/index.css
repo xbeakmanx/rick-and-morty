@@ -1,13 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply bg-slate-900 text-white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.card {
+  background-color: #6f8098;
+  opacity: 1;
+  min-height: 175px;
+  @apply transition w-full overflow-hidden rounded-md p-4;
+}
+
+.card__grid {
+  @apply grid grid-cols-3 gap-x-4;
+}
+
+.card--hover {
+  @apply cursor-pointer hover:scale-105;
+}
+
+.card__image {
+  @apply h-full w-full object-cover object-center lg:h-full lg:w-full rounded-md;
+}
+
+.card--shake {
+  @apply animate-shake;
+}
+.card--shake {
+  @apply animate-shake;
+}
+
+.card--wave {
+  @apply animate-wave;
+}
+
+.box {
+  @apply max-w-sm p-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700;
+}
+.containerComponent--background {
+  @apply bg-gradient-to-r from-slate-800 to-slate-900;
+}
+.containerComponent {
+  @apply min-h-screen;
+}
+.containerComponent__content {
+  @apply mx-auto max-w-2xl px-4 md:py-10 lg:py-16 sm:px-6 py-16 lg:max-w-5xl lg:px-8;
+}
+
+.form {
+  min-height: 290px;
+  @apply relative p-1 flex-auto;
+}
+
+.form__image {
+  min-height: 200px;
+  @apply h-full w-full object-cover object-center lg:h-full lg:w-3/6 m-auto;
+}
+
+.form__title {
+  @apply text-black text-lg leading-relaxed text-center -mt-4 mb-2;
+}
+.form__input {
+  @apply flex m-auto shadow appearance-none border rounded w-7/12 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none;
+}
+
+.form__required {
+  @apply text-center text-red-500 -mt-1 font-semibold;
+}
+
+.form__boxBtn {
+  @apply flex m-auto mb-5 items-center justify-end  rounded-b;
+}
+
+.form__btn {
+  @apply bg-slate-800 text-white disabled:bg-slate-500 disabled:cursor-not-allowed font-bold uppercase text-sm px-6 py-3 rounded shadow  outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150;
+}
+
+.gridComponent {
+  @apply mt-6 grid grid-cols-1 gap-x-3 lg:gap-x-6 gap-y-4 md:gap-y-6 lg:gap-y-6 lg:grid-cols-2;
+}
+
+.cardLoader {
+  background-color: #6f8098;
+  opacity: 1;
+  min-height: 177px;
+  @apply transition animate-pulse w-full overflow-hidden rounded-md p-4;
+}
+
+.modal {
+  @apply justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none;
+}
+
+.modal__body {
+  @apply relative mx-auto  max-w-3xl w-11/12 sm:w-9/12 md:w-6/12;
+}
+
+.modal__content {
+  @apply border-0 rounded-lg shadow-lg relative flex flex-col  w-full md:w-full bg-slate-400 outline-none focus:outline-none;
+}
+
+.modal__backdrop {
+  @apply opacity-70 fixed inset-0 z-40 bg-black;
+}
+
+.title {
+  @apply text-xl font-bold  text-white;
+}
+
+.dataUser__container-title {
+  @apply absolute right-5 top-5 p-2;
+}
+
+.dataUser__title {
+  @apply text-sm mb-0;
+}
+
+.gameOver {
+  @apply m-auto min-w-full mt-10;
+}
+
+.gameOver__title {
+  @apply text-center text-3xl;
+}
+
+.gameOver__rating {
+  @apply flex justify-center gap-4;
+}
+
+.gameOver__answers {
+  @apply m-auto mt-5;
+}
+
+.gameOver__text-answers {
+  @apply mb-0 text-center text-xl;
+}
+
+.btn {
+  @apply bg-blue-800 hover:bg-blue-900 text-white font-bold py-2 px-4  rounded-lg mt-5;
+}
+
+.home__flexButton {
+  @apply flex justify-between;
 }
