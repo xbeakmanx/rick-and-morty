@@ -18,7 +18,7 @@ body {
 }
 
 .card__heart {
-  @apply absolute right-4 w-6;
+  @apply absolute right-4 w-6 cursor-pointer hover:w-7 transition-all;
 }
 
 .card--hover {

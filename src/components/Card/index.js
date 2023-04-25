@@ -1,13 +1,20 @@
 import { Title } from "..";
-import Heart from "components/Svg/heart";
+import Heart from "pages/Home/components/Heart";
+import { useState } from "react";
 
-export default function Card({ name, species, image, alt, episodes, status }) {
+export default function Card({
+  id,
+  name,
+  species,
+  image,
+  alt,
+  episodes,
+  status,
+}) {
   return (
     <>
       <div className={`card relative`}>
-        <div className="card__heart">
-          <Heart />
-        </div>
+        <Heart id={id} />
         <div className="card__grid">
           {image ? (
             <img src={image} alt={alt} className="card__image" />

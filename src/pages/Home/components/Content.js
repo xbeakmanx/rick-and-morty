@@ -5,6 +5,7 @@ import { useFetchFilter } from "hooks/useFetchFilter";
 import ButtonsPagination from "../components/ButtonsPagination";
 import ButtonFilter from "./ButtonFilter";
 import EmptyData from "../../../components/EmptyData";
+import { FavoriteProvider } from "context/favorite-context";
 
 export default function Content() {
   const [dataPages, setDataPages] = useState({
@@ -18,36 +19,40 @@ export default function Content() {
     activeSearch
   );
   const { characters, isFetching } = data;
+
   return (
     <>
-      <ButtonFilter />
-      {isFetching ? (
-        <Loader number={10} />
-      ) : !data.characters ? (
-        <EmptyData />
-      ) : (
-        <>
-          <Grid>
-            {characters.map((el) => (
-              <Card
-                key={el.id}
-                name={el.name}
-                species={el.species}
-                image={el.image}
-                alt={el.name}
-                episodes={el.episode.length}
-                status={el.status}
-              />
-            ))}
-          </Grid>
-          <ButtonsPagination
-            data={data}
-            setData={setData}
-            setDataPages={setDataPages}
-            dataPages={dataPages}
-          />
-        </>
-      )}
+      <FavoriteProvider>
+        <ButtonFilter />
+        {isFetching ? (
+          <Loader number={10} />
+        ) : !data.characters ? (
+          <EmptyData />
+        ) : (
+          <>
+            <Grid>
+              {characters.map((el) => (
+                <Card
+                  key={el.id}
+                  id={el.id}
+                  name={el.name}
+                  species={el.species}
+                  image={el.image}
+                  alt={el.name}
+                  episodes={el.episode.length}
+                  status={el.status}
+                />
+              ))}
+            </Grid>
+            <ButtonsPagination
+              data={data}
+              setData={setData}
+              setDataPages={setDataPages}
+              dataPages={dataPages}
+            />
+          </>
+        )}
+      </FavoriteProvider>
     </>
   );
 }
