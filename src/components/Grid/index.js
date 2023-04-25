@@ -1,4 +1,3 @@
-export default function Grid(props) {
-  const { children } = props;
-  return <div className="gridComponent">{children}</div>;
+export default function Grid({ children, className }) {
+  return <div className={`gridComponent ${className}`}>{children}</div>;
 }

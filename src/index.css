@@ -6,23 +6,39 @@ body {
   @apply bg-slate-900 text-white;
 }
 
-.card {
+.cardBg {
   background-color: #6f8098;
-  opacity: 1;
-  min-height: 175px;
-  @apply transition w-full overflow-hidden rounded-md p-4;
+}
+
+.card {
+  @apply transition min-h-fit w-full overflow-hidden rounded-md p-4 cardBg;
+}
+
+.cardSimple {
+  @apply w-fit md:w-4/12 m-auto;
 }
 
 .card__grid {
   @apply grid grid-cols-3 gap-x-4;
 }
 
-.card__heart {
+.heart {
   @apply absolute right-4 w-6 cursor-pointer hover:w-7 transition-all;
+}
+
+.share {
+  @apply heart top-16;
+}
+
+.share__text {
+  @apply relative -left-2 text-xs;
 }
 
 .card--hover {
   @apply cursor-pointer hover:scale-105;
+}
+.card__image--pixel {
+  max-height: 250px;
 }
 
 .card__image {
@@ -43,27 +59,31 @@ body {
   @apply animate-wave;
 }
 
+.card__btn {
+  @apply font-medium border border-gray-300 rounded-lg text-sm px-3 py-1.5 mr-2 mt-1 bg-transparent text-white hover:bg-gray-700 hover:border-gray-600 focus:ring-gray-700;
+}
+
 .box {
-  @apply max-w-sm p-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700;
+  @apply max-w-sm p-3  rounded-lg shadow bg-gray-800 border-gray-700;
 }
 .containerComponent--background {
   @apply bg-gradient-to-r from-slate-800 to-slate-900;
 }
 .containerComponent {
-  @apply min-h-screen;
+  @apply min-h-screen mt-5;
 }
 .containerComponent__content {
-  @apply mx-auto max-w-2xl px-4 md:py-10 lg:py-16 sm:px-6 py-16 lg:max-w-5xl lg:px-8;
+  @apply mx-auto px-4 md:py-10 lg:py-16 sm:px-6 py-16 lg:max-w-7xl lg:px-8;
 }
 
 .formFilter {
   @apply relative p-4 justify-end;
 }
 .formFilter__grid {
-  @apply grid grid-cols-3 gap-y-4 mb-5;
+  @apply gap-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-4 mb-5;
 }
 .formFilter__title {
-  @apply mb-4 font-semibold text-gray-900 dark:text-white;
+  @apply mb-4 font-semibold text-white;
 }
 
 .buttonFilter {
@@ -74,11 +94,11 @@ body {
 }
 
 .checkbox {
-  @apply items-center my-5 w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white;
+  @apply grid grid-cols-2 gap-3 items-center my-5 w-full text-sm font-medium  sm:flex sm:gap-2  border-gray-600 text-white;
 }
 
 .checkbox__li {
-  @apply w-full cursor-pointer border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600;
+  @apply w-full rounded-lg bg-gray-700 cursor-pointer border-b  sm:border-b-0 sm:border-r border-gray-600;
 }
 
 .checkbox__container-li {
@@ -86,14 +106,14 @@ body {
 }
 
 .checkbox__checkbox {
-  @apply hidden w-4 h-4 cursor-pointer text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500;
+  @apply hidden w-4 h-4 cursor-pointer text-blue-600 rounded focus:ring-blue-600 ring-offset-gray-700 focus:ring-offset-gray-700 focus:ring-2 bg-gray-600 border-gray-500;
 }
 
 .checkbox__label {
-  @apply peer-checked:text-blue-400 text-center w-full cursor-pointer py-3 text-sm font-medium text-gray-900 dark:text-gray-300;
+  @apply peer-checked:text-blue-400 text-center w-full cursor-pointer py-3 text-sm font-medium  text-gray-300;
 }
 .formFilter__input {
-  @apply flex shadow appearance-none border rounded mr-6 py-2 px-3 text-gray-700 leading-tight focus:outline-none;
+  @apply border-gray-600 bg-gray-600 placeholder-gray-400 border rounded py-2 px-3 pr-10 text-white leading-tight focus:outline-none;
 }
 
 .formFilter__required {
@@ -105,14 +125,13 @@ body {
 }
 
 .gridComponent {
-  @apply mt-6 grid grid-cols-1 gap-x-3 lg:gap-x-6 gap-y-4 md:gap-y-6 lg:gap-y-6 lg:grid-cols-2;
+  @apply mt-6 sm:mt-8 md:mt-12 lg:mt-6  grid grid-cols-1 gap-x-3 md:gap-x-6 gap-y-4  md:gap-y-6 md:grid-cols-2;
 }
 
 .cardLoader {
   background-color: #6f8098;
   opacity: 1;
-  min-height: 175px;
-  @apply transition animate-pulse w-full overflow-hidden rounded-md p-4;
+  @apply transition h-40 animate-pulse w-full overflow-hidden rounded-md p-4;
 }
 
 .emptyData__image {
@@ -173,9 +192,64 @@ body {
 }
 
 .btn {
-  @apply bg-blue-800 hover:bg-blue-900 text-white font-bold py-2 px-4  rounded-lg mt-5;
+  @apply bg-blue-800 hover:bg-blue-900 text-white font-bold py-2 px-4  rounded-lg mt-0;
 }
 
 .home__flexButton {
   @apply flex justify-between;
+}
+
+.buttonsPagination {
+  margin: -16px;
+  bottom: 16px;
+
+  @apply flex fixed justify-between mt-5 bg-slate-500 md:bg-transparent w-screen md:w-auto sm:relative px-4 py-1;
+}
+
+.navbar {
+  @apply bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-600;
+}
+
+.navbar__container {
+  @apply max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4;
+}
+
+.navbar__container--image {
+  @apply flex items-center cursor-pointer;
+}
+
+.narvar__image {
+  @apply w-40;
+}
+
+.navbar__buttons {
+  @apply flex md:order-2 gap-5;
+}
+
+.narvar__button--filter {
+  @apply hidden md:flex;
+}
+
+.navbar__button--heart {
+  @apply bg-green-600 items-center hidden md:flex hover:bg-green-700;
+}
+
+.navbar__button--icon {
+  @apply w-5 mr-1;
+}
+
+.navbar__button--menu {
+  @apply inline-flex items-center p-2 text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600;
+}
+
+.navbar__items {
+  @apply items-center justify-between w-full md:flex md:w-auto md:order-1;
+}
+
+.navar__items--container {
+  @apply flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-gray-800 md:bg-gray-900 border-gray-700;
+}
+
+.navbar__items--item {
+  @apply block py-2 pl-3 pr-4 text-white rounded cursor-pointer md:bg-transparent  md:p-0;
 }

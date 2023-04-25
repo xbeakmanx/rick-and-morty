@@ -5,7 +5,7 @@ const FilterContext = createContext();
 
 function FilterProvider(props) {
   const [values, setValues] = useState([
-    { id: "name", name: "Name", value: "" },
+    { id: "name", name: "Name", value: "", type: "input" },
   ]);
   const [showModal, setShowModal] = useState(false);
   const [activeSearch, setActiveSearch] = useState("");
@@ -38,6 +38,7 @@ function FilterProvider(props) {
         onSave: handleFilter,
         showModal,
         setShowModal,
+        setActiveSearch,
       }}
       {...props}
     />

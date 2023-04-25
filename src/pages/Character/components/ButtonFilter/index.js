@@ -1,11 +1,11 @@
 import { useFormFilter } from "context/filter-context";
 import { Button, Modal, FormFilter } from "components/";
 
-export default function ButtonFilter({ className }) {
+export default function ButtonFilter() {
   const { showModal, setShowModal } = useFormFilter();
   return (
     <>
-      <div className={`buttonFilter ${className}`}>
+      <div className="buttonFilter">
         <Button
           className="btn__filter"
           onClick={() => {

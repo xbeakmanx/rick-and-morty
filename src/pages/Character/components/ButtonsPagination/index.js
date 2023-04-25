@@ -8,7 +8,7 @@ export default function ButtonsPagination({
 }) {
   return (
     <>
-      <div className="buttonsPagination">
+      <div className="flex justify-between">
         <Button
           disabled={
             dataPages.currentPage === 1 && dataPages.currentPagePagination === 1

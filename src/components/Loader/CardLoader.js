@@ -1,7 +1,7 @@
-export default function CardLoader() {
+export default function CardLoader({ classNameCard }) {
   return (
     <>
-      <div className="cardLoader" />
+      <div className={`${classNameCard} cardLoader`} />
     </>
   );
 }

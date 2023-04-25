@@ -1,7 +1,7 @@
-export const getNumbersString = (n1, n2) => {
+export const getNumbersString = (data) => {
   let numbersString = "";
-  for (let i = n1; i <= n2; i++) {
-    numbersString += `${i},`;
+  for (let i = 0; i < data.length; i++) {
+    numbersString += `${data[i].id},`;
   }
   numbersString = numbersString.slice(0, -1);
   return numbersString;

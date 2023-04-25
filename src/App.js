@@ -1,11 +1,14 @@
-import { Container } from "./components";
-import Home from "./pages/Home";
+import { FavoriteProvider } from "context/favorite-context";
+import { FilterProvider } from "context/filter-context";
+import Router from "./routes";
 
 function App() {
   return (
-    <Container>
-      <Home />
-    </Container>
+    <FilterProvider>
+      <FavoriteProvider>
+        <Router />
+      </FavoriteProvider>
+    </FilterProvider>
   );
 }
 
