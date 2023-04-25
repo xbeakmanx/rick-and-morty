@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
 import { getNumbersString } from "../services/getNumberString";
 
-export const useFetchPagination = (n1, n2) => {
+export const useFetchPagination = () => {
   const [data, setData] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
+  const [dataNumbers, setDataNumbers] = useState({ n1: 1, n2: 10 });
+
   useEffect(() => {
     (async () => {
       try {
         setIsFetching(true);
         const res = await fetch(
           `https://rickandmortyapi.com/api/character/${getNumbersString(
-            n1,
-            n2
+            dataNumbers.n1,
+            dataNumbers.n2
           )}`
         );
         const dataRes = await res.json();
@@ -22,7 +24,14 @@ export const useFetchPagination = (n1, n2) => {
         setIsFetching(false);
       }
     })();
-  }, [n1, n2]);
+  }, [dataNumbers]);
 
-  return { data, isFetching };
+  return {
+    data,
+    isFetching,
+    n1: dataNumbers.n1,
+    n2: dataNumbers.n2,
+    setData,
+    setDataNumbers,
+  };
 };

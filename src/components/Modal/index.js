@@ -1,15 +1,21 @@
-export default function Modal({ children, showModal, enableScroll }) {
-  enableScroll
+export default function Modal({ children, showModal, setShowModal }) {
+  showModal
     ? (document.body.style.overflow = "hidden")
     : (document.body.style.overflow = "auto");
-  return showModal ? (
+
+  const handleOnClose = (e) => {
+    if (e.target.id === "container") {
+      setShowModal(false);
+    }
+  };
+  if (!showModal) return null;
+  return (
     <>
-      <div className="modal">
+      <div id="container" className="modal" onClick={handleOnClose}>
         <div className="modal__body">
           <div className="modal__content">{children}</div>
         </div>
       </div>
-      <div className="modal__backdrop"></div>
     </>
-  ) : null;
+  );
 }
