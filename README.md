@@ -12,6 +12,10 @@ Rick and morty react by Jhon Jairo Garcia Camacho
 
 ![Image text](https://i.postimg.cc/wxbVfL9S/Captura-de-pantalla-2023-04-25-a-la-s-11-25-55-p-m.png)
 
+### API
+
+- [Rick and Morty](https://rickandmortyapi.com/documentation/
+
 ## Technologies
 
 ---
