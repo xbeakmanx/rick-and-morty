@@ -1,11 +1,9 @@
 import ShareIcon from "components/Svg/share";
 import { useHandleCopy } from "hooks/useHandleCopy";
-import { memo, useState } from "react";
+import { memo } from "react";
 
 function Share({ id }) {
   const { copied, handleCopy } = useHandleCopy();
-  console.log(copied);
-
   return (
     <>
       <div className="share" onClick={() => handleCopy(`character/${id}`)}>

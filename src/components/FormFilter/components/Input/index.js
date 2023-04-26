@@ -1,7 +1,7 @@
-export default function Input({ idKey, value, id, name, onChange }) {
+export default function Input({ value, id, name, onChange, ...rest }) {
   return (
     <input
-      key={idKey + 20}
+      {...rest}
       onChange={(e) => onChange(e.target.value, id)}
       value={value}
       className="formFilter__input"

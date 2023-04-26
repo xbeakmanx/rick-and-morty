@@ -10,13 +10,13 @@ export default function Favorites() {
   const { characters, isFetching } = data;
   return (
     <>
+      <Title className="mt-5">Favorites characters</Title>
       {isFetching ? (
         <Loader number={values.length} />
       ) : characters.length === 0 ? (
         <EmptyData text={`You don't have any favorites characters`} />
       ) : (
         <>
-          <Title className="mt-5">Favorites characters</Title>
           <Grid>
             {characters.map((el) => (
               <Card

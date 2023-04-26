@@ -1,7 +1,6 @@
 export default function Select({ idKey, options, id, onChange }) {
   return (
     <select
-      key={idKey}
       className="formFilter__input"
       placeholder="seleccione"
       onChange={(e) => onChange(e.target.value, id)}

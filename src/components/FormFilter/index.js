@@ -9,7 +9,9 @@ import Select from "./components/Select";
 export default function FormFilter() {
   const { inputProps, setValues, values, onSave } = useFormFilter();
   const { filterValues, handleCheckbox } = useCheckBox(setValues, values);
-
+  const isValued = values.filter((el) =>
+    el.value.length > 0 ? true : false
+  ).length;
   return (
     <>
       <div className="formFilter">
@@ -21,7 +23,12 @@ export default function FormFilter() {
             const findValue = values.find((value) => el.id === value.id);
             return TYPES.INPUT === el.type ? (
               <Input
-                idKey={el.id + 20}
+                onKeyPress={(event) => {
+                  if (event.key === "Enter") {
+                    onSave();
+                  }
+                }}
+                key={el.id + 20}
                 value={findValue.value}
                 id={findValue.id}
                 name={el.name}
@@ -29,7 +36,7 @@ export default function FormFilter() {
               />
             ) : (
               <Select
-                idKey={el.id + 20}
+                key={el.id + 20}
                 options={el.options}
                 id={findValue.id}
                 onChange={inputProps.onChange}
@@ -39,12 +46,15 @@ export default function FormFilter() {
         </div>
 
         <div className="formFilter__boxBtn">
+          <div className="formFilter__textRequired">
+            {isValued !== values.length ? "Complete required fields" : null}
+          </div>
           <Button
             className="formFilter__btn"
             onClick={() => {
               onSave();
             }}
-            disabled={values.length === 0 ? true : false}
+            disabled={isValued !== values.length ? true : false}
           >
             Search
           </Button>
