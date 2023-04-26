@@ -7,14 +7,21 @@ export default function Content({
   data,
   setData,
   setDataPages,
-  dataPages,
   activeSearch,
   setActiveSearch,
 }) {
   return (
     <>
       {activeSearch ? (
-        <ButtonOutline onClick={() => setActiveSearch("")}>Reset</ButtonOutline>
+        <ButtonOutline
+          onClick={() => {
+            setActiveSearch("");
+            setDataPages({ currentPage: 1, currentPagePagination: 1 });
+            setData({ ...data, currentPaginator: 1 });
+          }}
+        >
+          Reset
+        </ButtonOutline>
       ) : null}
       <Grid>
         {characters.map((el) => (
@@ -31,12 +38,6 @@ export default function Content({
         ))}
       </Grid>
       <Alert />
-      <ButtonsPagination
-        data={data}
-        setData={setData}
-        setDataPages={setDataPages}
-        dataPages={dataPages}
-      />
     </>
   );
 }

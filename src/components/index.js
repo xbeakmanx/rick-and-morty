@@ -9,6 +9,7 @@ import Button from "./Button";
 import FormFilter from "./FormFilter";
 import EmptyData from "./EmptyData";
 import ButtonOutline from "./ButtonOutline";
+import ButtonHome from "./ButtonHome";
 
 export {
   Card,
@@ -22,4 +23,5 @@ export {
   FormFilter,
   EmptyData,
   ButtonOutline,
+  ButtonHome,
 };

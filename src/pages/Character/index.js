@@ -1,21 +1,15 @@
-import { ButtonOutline, Card, Loader } from "components";
+import { ButtonHome, Card, Loader } from "components";
 import EmptyData from "components/EmptyData";
 import { useFetchById } from "hooks/useFetchById";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export default function Character() {
   const { id } = useParams();
   const { data } = useFetchById(id);
   const { characters, isFetching } = data;
-  const navigate = useNavigate();
   return (
     <div className="cardSimple mt-24">
-      <ButtonOutline
-        className="absolute left-5 top-20"
-        onClick={() => navigate("/")}
-      >
-        Home
-      </ButtonOutline>
+      <ButtonHome />
       {isFetching ? (
         <Loader number={1} classNameGrid="grid-cols-1" classNameCard="h-96" />
       ) : characters.error ? (

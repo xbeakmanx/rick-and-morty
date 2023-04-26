@@ -5,13 +5,16 @@ export default function ButtonsPagination({
   setData,
   dataPages,
   setDataPages,
+  totalPages,
+  currentPaginator,
 }) {
+  if (!data.characters) return null;
   return (
     <>
       <div className="buttonsPagination">
         {dataPages.currentPage === 1 &&
         dataPages.currentPagePagination === 1 ? (
-          <div></div>
+          <div className="w-16" />
         ) : (
           <Button
             onClick={
@@ -21,6 +24,7 @@ export default function ButtonsPagination({
                       ...data,
                       activeNextPage: false,
                       activePreviousPage: true,
+                      currentPaginator: currentPaginator - 1,
                     });
                     setDataPages({
                       currentPagePagination: 2,
@@ -32,6 +36,7 @@ export default function ButtonsPagination({
                       ...data,
                       activeNextPage: true,
                       activePreviousPage: false,
+                      currentPaginator: currentPaginator - 1,
                     });
                     setDataPages({
                       currentPagePagination: 1,
@@ -43,6 +48,9 @@ export default function ButtonsPagination({
             Back
           </Button>
         )}
+        <div className="flex items-center font-semibold">
+          {currentPaginator}/{totalPages}
+        </div>
         {data.totalPages === dataPages.currentPage ? null : (
           <Button
             onClick={
@@ -52,6 +60,7 @@ export default function ButtonsPagination({
                       ...data,
                       activeNextPage: false,
                       activePreviousPage: true,
+                      currentPaginator: currentPaginator + 1,
                     });
                     setDataPages({
                       currentPagePagination: 2,
@@ -63,6 +72,7 @@ export default function ButtonsPagination({
                       ...data,
                       activeNextPage: true,
                       activePreviousPage: false,
+                      currentPaginator: currentPaginator + 1,
                     });
                     setDataPages({
                       currentPagePagination: 1,

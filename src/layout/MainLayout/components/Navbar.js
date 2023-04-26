@@ -6,6 +6,9 @@ import { useFormFilter } from "context/filter-context";
 import ButtonFilter from "pages/Home/components/ButtonFilter";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { items } from "../items";
+import Item from "./Item";
+import Logo from "./Logo";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -14,13 +17,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar__container">
-        <div onClick={() => navigate("/")} className="navbar__container--image">
-          <img
-            src="/rick-and-morty.png"
-            className="narvar__image"
-            alt="Flowbite Logo"
-          />
-        </div>
+        <Logo navigate={navigate} />
         <div className="navbar__buttons">
           <ButtonFilter className="navbar__button-filter narvar__button--filter" />
 
@@ -54,30 +51,14 @@ export default function Navbar() {
           }`}
         >
           <ul className="navar__items--container">
-            <li>
-              <div
-                onClick={() => {
-                  navigate("/");
-                  setExpand(false);
-                }}
-                className="navbar__items--item"
-                aria-current="page"
-              >
-                Home
-              </div>
-            </li>
-            <li className="md:hidden">
-              <div
-                onClick={() => {
-                  navigate("/favorite");
-                  setExpand(false);
-                }}
-                className="navbar__items--item"
-                aria-current="page"
-              >
-                Favorite
-              </div>
-            </li>
+            {items.map((el, index) => (
+              <Item
+                key={index}
+                item={el}
+                navigate={navigate}
+                setExpand={setExpand}
+              />
+            ))}
           </ul>
         </div>
       </div>

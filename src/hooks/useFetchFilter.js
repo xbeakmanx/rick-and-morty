@@ -11,6 +11,7 @@ export const useFetchFilter = (
     activePreviousPage: false,
     characters: [],
     isFetching: true,
+    currentPaginator: 1,
   });
   useEffect(() => {
     (async () => {

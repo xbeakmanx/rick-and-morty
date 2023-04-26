@@ -3,6 +3,7 @@ import { Loader, EmptyData, ButtonOutline } from "components";
 import { useFormFilter } from "context/filter-context";
 import { useFetchFilter } from "hooks/useFetchFilter";
 import Content from "./components/Content";
+import ButtonsPagination from "./components/ButtonsPagination";
 
 export default function Home() {
   const [dataPages, setDataPages] = useState({
@@ -15,7 +16,7 @@ export default function Home() {
     dataPages.currentPagePagination,
     activeSearch
   );
-  const { characters, isFetching } = data;
+  const { characters, isFetching, totalPages, currentPaginator } = data;
 
   return (
     <>
@@ -26,7 +27,11 @@ export default function Home() {
           {activeSearch ? (
             <ButtonOutline
               className={"flex m-auto"}
-              onClick={() => setActiveSearch("")}
+              onClick={() => {
+                setActiveSearch("");
+                setData({ ...data, currentPaginator: 1 });
+                setDataPages({ currentPage: 1, currentPagePagination: 1 });
+              }}
             >
               Reset
             </ButtonOutline>
@@ -38,11 +43,18 @@ export default function Home() {
           setData={setData}
           setDataPages={setDataPages}
           data={data}
-          dataPages={dataPages}
           activeSearch={activeSearch}
           setActiveSearch={setActiveSearch}
         />
       )}
+      <ButtonsPagination
+        data={data}
+        setData={setData}
+        setDataPages={setDataPages}
+        dataPages={dataPages}
+        totalPages={totalPages * 2 - 1}
+        currentPaginator={currentPaginator}
+      />
     </>
   );
 }

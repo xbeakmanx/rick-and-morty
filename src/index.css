@@ -15,7 +15,7 @@ body {
 }
 
 .cardSimple {
-  @apply w-fit md:w-4/12 m-auto;
+  @apply w-auto md:w-4/12 m-auto;
 }
 
 .card__grid {
