@@ -49,7 +49,7 @@ export default function ButtonsPagination({
           </Button>
         )}
         <div className="flex items-center font-semibold">
-          {currentPaginator}/{totalPages}
+          {currentPaginator}/{totalPages || 1}
         </div>
         {data.totalPages === dataPages.currentPage ? null : (
           <Button

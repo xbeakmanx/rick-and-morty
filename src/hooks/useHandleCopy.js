@@ -4,7 +4,7 @@ export const useHandleCopy = () => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = (url) => {
-    navigator.clipboard.writeText(`${window.location.host}/${url}`);
+    navigator.clipboard.writeText(`${window.location.origin}/${url}`);
     setCopied(true);
     setTimeout(() => {
       setCopied(false);
