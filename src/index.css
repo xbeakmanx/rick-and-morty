@@ -42,7 +42,7 @@ body {
 }
 
 .card__image {
-  @apply h-full w-full object-cover object-center lg:h-full lg:w-full rounded-md;
+  @apply h-full w-full bg-gray-500 object-cover object-center lg:h-full lg:w-full rounded-md;
 }
 .card__image--without {
   @apply card__image bg-gray-500;
@@ -135,7 +135,7 @@ body {
 .cardLoader {
   background-color: #6f8098;
   opacity: 1;
-  @apply transition h-40 animate-pulse w-full overflow-hidden rounded-md p-4;
+  @apply transition h-52 animate-pulse w-full overflow-hidden rounded-md p-4;
 }
 
 .emptyData__image {
