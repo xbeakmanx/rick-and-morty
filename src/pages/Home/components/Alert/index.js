@@ -11,7 +11,7 @@ export default function Alert() {
       >
         X
       </div>
-      Error! the limit is 5 characters
+      Sorry! You can only select 5 favorite characters
     </div>
   );
 }

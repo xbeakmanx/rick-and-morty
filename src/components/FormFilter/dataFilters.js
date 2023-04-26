@@ -24,7 +24,7 @@ export const dataFilters = [
     ],
   },
   {
-    name: "Specie",
+    name: "Species",
     id: "species",
     type: "input",
   },

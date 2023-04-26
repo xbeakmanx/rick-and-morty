@@ -9,70 +9,71 @@ export default function ButtonsPagination({
   return (
     <>
       <div className="buttonsPagination">
-        <Button
-          disabled={
-            dataPages.currentPage === 1 && dataPages.currentPagePagination === 1
-              ? true
-              : false
-          }
-          onClick={
-            !data.activePreviousPage
-              ? () => {
-                  setData({
-                    ...data,
-                    activeNextPage: false,
-                    activePreviousPage: true,
-                  });
-                  setDataPages({
-                    currentPagePagination: 2,
-                    currentPage: dataPages.currentPage - 1,
-                  });
-                }
-              : () => {
-                  setData({
-                    ...data,
-                    activeNextPage: true,
-                    activePreviousPage: false,
-                  });
-                  setDataPages({
-                    currentPagePagination: 1,
-                    currentPage: dataPages.currentPage,
-                  });
-                }
-          }
-        >
-          Atrás
-        </Button>
-        <Button
-          disabled={data.totalPages === dataPages.currentPage ? true : false}
-          onClick={
-            data.activeNextPage
-              ? () => {
-                  setData({
-                    ...data,
-                    activeNextPage: false,
-                    activePreviousPage: true,
-                  });
-                  setDataPages({
-                    currentPagePagination: 2,
-                    currentPage: dataPages.currentPage,
-                  });
-                }
-              : () => {
-                  setData({
-                    ...data,
-                    activeNextPage: true,
-                    activePreviousPage: false,
-                  });
-                  setDataPages({
-                    currentPagePagination: 1,
-                    currentPage: dataPages.currentPage + 1,
-                  });
-                }
-          }
-        >
-          Siguiente
-        </Button>
+        {dataPages.currentPage === 1 &&
+        dataPages.currentPagePagination === 1 ? (
+          <div></div>
+        ) : (
+          <Button
+            onClick={
+              !data.activePreviousPage
+                ? () => {
+                    setData({
+                      ...data,
+                      activeNextPage: false,
+                      activePreviousPage: true,
+                    });
+                    setDataPages({
+                      currentPagePagination: 2,
+                      currentPage: dataPages.currentPage - 1,
+                    });
+                  }
+                : () => {
+                    setData({
+                      ...data,
+                      activeNextPage: true,
+                      activePreviousPage: false,
+                    });
+                    setDataPages({
+                      currentPagePagination: 1,
+                      currentPage: dataPages.currentPage,
+                    });
+                  }
+            }
+          >
+            Back
+          </Button>
+        )}
+        {data.totalPages === dataPages.currentPage ? null : (
+          <Button
+            onClick={
+              data.activeNextPage
+                ? () => {
+                    setData({
+                      ...data,
+                      activeNextPage: false,
+                      activePreviousPage: true,
+                    });
+                    setDataPages({
+                      currentPagePagination: 2,
+                      currentPage: dataPages.currentPage,
+                    });
+                  }
+                : () => {
+                    setData({
+                      ...data,
+                      activeNextPage: true,
+                      activePreviousPage: false,
+                    });
+                    setDataPages({
+                      currentPagePagination: 1,
+                      currentPage: dataPages.currentPage + 1,
+                    });
+                  }
+            }
+          >
+            Next
+          </Button>
+        )}
       </div>
     </>
   );

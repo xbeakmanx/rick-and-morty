@@ -8,7 +8,7 @@ export function useHandleFavorite(data, handleClick) {
     if (values.some((el) => el.id === data) && values.length <= 5) {
       const removeArray = values.filter((el2) => el2.id !== data);
       setValues(removeArray);
-      handleClick("favorites", removeArray);
+      handleClick("favorite", removeArray);
       setError(false);
     } else if (values.length === 5) {
       setError(true);
@@ -18,7 +18,7 @@ export function useHandleFavorite(data, handleClick) {
     } else {
       const addArray = [...values, { id: data }];
       setValues(addArray);
-      handleClick("favorites", addArray);
+      handleClick("favorite", addArray);
       setError(false);
     }
   };

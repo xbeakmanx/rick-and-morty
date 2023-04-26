@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import MainLayout from "layout/MainLayout";
 // pages
 import Home from "pages/Home";
-import Favorites from "pages/Favorites";
+import Favorite from "pages/Favorite";
 import Character from "pages/Character";
 // ----------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ export default function Router() {
       <Route path="*" element={"error 404"} />
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/favorite" element={<Favorite />} />
         <Route path="/character/:id" element={<Character />} />
       </Route>
     </Routes>

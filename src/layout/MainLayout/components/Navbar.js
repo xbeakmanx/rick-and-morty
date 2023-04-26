@@ -25,13 +25,13 @@ export default function Navbar() {
           <ButtonFilter className="navbar__button-filter narvar__button--filter" />
 
           <Button
-            onClick={() => navigate("/favorites")}
+            onClick={() => navigate("/favorite")}
             className="navbar__button--heart"
           >
             <div className="navbar__button--icon">
               <HeartIcon />
             </div>
-            Favorites
+            Favorite
           </Button>
           <button
             onClick={() => setShowModal(true)}
@@ -69,13 +69,13 @@ export default function Navbar() {
             <li className="md:hidden">
               <div
                 onClick={() => {
-                  navigate("/favorites");
+                  navigate("/favorite");
                   setExpand(false);
                 }}
                 className="navbar__items--item"
                 aria-current="page"
               >
-                Favorites
+                Favorite
               </div>
             </li>
           </ul>

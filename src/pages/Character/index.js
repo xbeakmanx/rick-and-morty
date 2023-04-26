@@ -14,7 +14,7 @@ export default function Character() {
         className="absolute left-5 top-20"
         onClick={() => navigate("/")}
       >
-        Atrás
+        Home
       </ButtonOutline>
       {isFetching ? (
         <Loader number={1} classNameGrid="grid-cols-1" classNameCard="h-96" />

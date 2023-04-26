@@ -1,11 +1,11 @@
 import { useHandleFavorite } from "hooks/useHandleFavorite";
 import { useLocalStorage } from "hooks/useLocalStorage";
-import { useState, useContext, createContext } from "react";
+import { useContext, createContext } from "react";
 
 const FavoriteContext = createContext();
 
 function FavoriteProvider(props) {
-  const { data, handleClick } = useLocalStorage("favorites");
+  const { data, handleClick } = useLocalStorage("favorite");
   const { values, setValues, error, setError, handleClickFavorite } =
     useHandleFavorite(data, handleClick);
   return (

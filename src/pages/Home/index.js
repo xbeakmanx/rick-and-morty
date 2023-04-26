@@ -28,7 +28,7 @@ export default function Home() {
               className={"flex m-auto"}
               onClick={() => setActiveSearch("")}
             >
-              Eliminar filtro
+              Reset
             </ButtonOutline>
           ) : null}
         </EmptyData>

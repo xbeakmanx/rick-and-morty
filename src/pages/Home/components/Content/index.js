@@ -14,9 +14,7 @@ export default function Content({
   return (
     <>
       {activeSearch ? (
-        <ButtonOutline onClick={() => setActiveSearch("")}>
-          Eliminar filtro
-        </ButtonOutline>
+        <ButtonOutline onClick={() => setActiveSearch("")}>Reset</ButtonOutline>
       ) : null}
       <Grid>
         {characters.map((el) => (

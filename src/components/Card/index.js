@@ -32,8 +32,11 @@ export default function Card({
 
           <div className="col-span-2">
             <Title className="w-10/12 sm:w-auto text-2xl mb-3">{name}</Title>
+
+            <p className="w-10/12 -mb-7 sm:w-auto text-green-400 font-medium text-lg">
+              Species: {species}
+            </p>
             <p className="text-green-400 font-medium text-lg">
-              Specie: {species}
               <br />
               Episodes: {episodes}
               <br />

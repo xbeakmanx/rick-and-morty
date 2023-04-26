@@ -4,17 +4,17 @@ import { useFavorite } from "context/favorite-context";
 import { useFetchById } from "hooks/useFetchById";
 import { getNumbersString } from "services/getNumberString";
 
-export default function Favorites() {
+export default function Favorite() {
   const { values } = useFavorite();
   const { data } = useFetchById(getNumbersString(values));
   const { characters, isFetching } = data;
   return (
     <>
-      <Title className="mt-5">Favorites characters</Title>
+      <Title className="mt-5">Favorite characters</Title>
       {isFetching ? (
         <Loader number={values.length} />
       ) : characters.length === 0 ? (
-        <EmptyData text={`You don't have any favorites characters`} />
+        <EmptyData text={`You don't have any favorite characters`} />
       ) : (
         <>
           <Grid>
