@@ -5,6 +5,7 @@ import Checkbox from "./components/Checkbox";
 import { TYPES } from "./dataFilters";
 import Input from "./components/Input";
 import Select from "./components/Select";
+import { useNavigate } from "react-router-dom";
 
 export default function FormFilter() {
   const { inputProps, setValues, values, onSave } = useFormFilter();
@@ -12,6 +13,7 @@ export default function FormFilter() {
   const isValued = values.filter((el) =>
     el.value.length > 0 ? true : false
   ).length;
+  const navigate = useNavigate();
   return (
     <>
       <div className="formFilter">
@@ -53,6 +55,7 @@ export default function FormFilter() {
             className="formFilter__btn"
             onClick={() => {
               onSave();
+              navigate("/");
             }}
             disabled={isValued !== values.length ? true : false}
           >
