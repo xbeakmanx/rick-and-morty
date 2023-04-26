@@ -1,5 +1,4 @@
 import { ButtonOutline, Card, Grid } from "components";
-import ButtonsPagination from "../ButtonsPagination";
 import Alert from "../Alert";
 
 export default function Content({

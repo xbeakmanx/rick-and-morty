@@ -1,6 +1,5 @@
 import { useHandleFilter } from "hooks/useHandleFilter";
-import { useState, useContext, createContext } from "react";
-import { filterParamsString } from "../services/getFilterParamsString";
+import { useContext, createContext } from "react";
 
 const FilterContext = createContext();
 
